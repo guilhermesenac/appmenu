@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,12 +7,33 @@
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+    <h3>Bem vindo</h3>
+    <h4>{{userName}}</h4>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-slides pager>
+
+  <ion-slide>
+    <img src="assets/imgs/imc.jpg">
+  </ion-slide>
+
+  <ion-slide style="background-color: #02b9ae">
+    <img src="assets/imgs/list.jpg">
+  </ion-slide>
+
+      <ion-slide padding class="planofundo">
+       <button ion-button block color="dark" navPush="LoginPage">Entrar</button>
+      <button ion-button block color="dark" navPush="CadastroPage">Criar Conta</button>
+      <button ion-button block color="dark" navPush="ResetpassowrdPage">Esqueci minha senha</button>
+
+
+  </ion-slide>
+
+
+</ion-slides>
+
+
 </ion-content>

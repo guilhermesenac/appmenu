@@ -4,7 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { OneSignal } from '@ionic-native/onesignal';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -14,16 +15,24 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform,
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen,
+              private oneSignal: OneSignal) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
-    ];
+      { icon: "home", title: 'Home', component: HomePage },
+      { icon: "person-add", title: 'Cadastro', component: 'CadastroPage' },
+      { icon: "person", title: 'Login', component: 'LoginPage' },
+      { icon: "build", title: 'Reset', component: 'ResetpassowrdPage' },
+      { icon: "calculator", title: 'Calcular IMC', component: 'CalcularPage' },
+      { icon: "paper", title: 'O que é IMC', component: 'NoticiasPage' },
+      { icon: "exit", title: 'Sair', component: HomePage }
+      ];
 
   }
 
@@ -33,6 +42,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.configurePushNotification();
     });
   }
 
@@ -41,4 +51,33 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+  
+  configurePushNotification(){
+    window["plugins"].OneSignal
+      .startInit('55c5058f-cd7a-4584-b4b4-4064d9784448', '235665947410');
+
+      this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+
+
+        this.oneSignal.handleNotificationReceived().subscribe(() => {
+        // do something when notification is received
+        });
+        
+        //
+        this.oneSignal.handleNotificationOpened().subscribe(() => {
+          // do something when a notification is opened
+        });
+
+        this.oneSignal.endInit();
+
+  }
 }
+
+
+
+
+
+
+
+
+
