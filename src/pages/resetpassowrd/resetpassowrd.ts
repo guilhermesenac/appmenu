@@ -1,4 +1,4 @@
-import { AngularFireAuth } from 'angularfire2/auth';
+// import { AngularFireAuth } from 'angularfire2/auth';
 import { UserProvider } from './../../providers/user/user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
@@ -18,7 +18,7 @@ export class ResetpassowrdPage {
 
   constructor(public navCtrl: NavController,
     private formBuilder: FormBuilder,
-    private auth: AngularFireAuth,
+    // private auth: AngularFireAuth,
     private toast: ToastController,
     private accountProvider: UserProvider,
     public navParams: NavParams) {

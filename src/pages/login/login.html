@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login</ion-title>
+    <ion-title>Login/Logout</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -31,7 +31,7 @@
       <ion-content padding>
         <form [formGroup]="form">
             <ion-item>
-            <ion-label stacked>E-mail</ion-label>      
+            <ion-label color="danger" stacked>E-mail</ion-label>      
             <ion-input type="email" formControlName="email"></ion-input>
             </ion-item>
         
@@ -43,7 +43,7 @@
         
         
             <ion-item>
-              <ion-label stacked>Senha</ion-label>
+              <ion-label color="danger"  stacked>Senha</ion-label>
               <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
         
@@ -56,11 +56,11 @@
         
         
             <div padding>
-              <button ion-button block (click)="onSubmit()" type="submit" [disabled]="!form.valid">Entrar</button>
+              <button color="danger" ion-button block (click)="onSubmit()" type="submit" [disabled]="!form.valid">Entrar</button>
             </div>
             <button ion-button block color="danger" clear navPush="ResetpassowrdPage">Esqueci minha senha</button>
             <button ion-button block color="danger" clear navPush="CadastroPage">Criar conta</button>
-            <button ion-button block color="danger"  clear (click)="signOut()">Sair conta</button>
+            <!-- <button ion-button block color="danger" clear (click)="signOut()">Sair conta</button> -->
 
           </form>
 

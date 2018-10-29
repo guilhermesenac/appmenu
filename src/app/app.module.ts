@@ -1,3 +1,5 @@
+import { NotsemanaProvider } from './../providers/notsemana/notsemana';
+import { CategoriasProvider } from './../providers/categorias/categorias';
 import { CalculosDirective } from './../providers/calculos/calculos';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -57,7 +59,7 @@ import { OneSignal } from '@ionic-native/onesignal';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider, CalculosDirective, OneSignal
+    UserProvider, CalculosDirective, OneSignal, CategoriasProvider, NotsemanaProvider
   ]
 })
 export class AppModule {}

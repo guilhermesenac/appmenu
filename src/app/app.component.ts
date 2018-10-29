@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -5,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { OneSignal } from '@ionic-native/onesignal';
+
 
 
 @Component({
@@ -20,6 +22,7 @@ export class MyApp {
   constructor(public platform: Platform,
               public statusBar: StatusBar, 
               public splashScreen: SplashScreen,
+              private auth: AngularFireAuth,
               private oneSignal: OneSignal) {
     this.initializeApp();
 
@@ -27,11 +30,13 @@ export class MyApp {
     this.pages = [
       { icon: "home", title: 'Home', component: HomePage },
       { icon: "person-add", title: 'Cadastro', component: 'CadastroPage' },
-      { icon: "person", title: 'Login', component: 'LoginPage' },
-      { icon: "build", title: 'Reset', component: 'ResetpassowrdPage' },
-      { icon: "calculator", title: 'Calcular IMC', component: 'CalcularPage' },
+      { icon: "person", title: 'Login/logout', component: 'LoginPage' },
+      { icon: "build", title: 'Esqueci a senha', component: 'ResetpassowrdPage' },
       { icon: "paper", title: 'O que é IMC', component: 'NoticiasPage' },
-      { icon: "exit", title: 'Sair', component: HomePage }
+      { icon: "calculator", title: 'Calcular IMC', component: 'CalcularPage' },
+      { icon: "share", title: 'Anotações', component: 'ListCategoriasPage' },
+      { icon: "notifications", title: 'Noticias da semana', component: 'NotsemamaPage' }
+      // { icon: "exit", title: 'Sair', component: HomePage }
       ];
 
   }
@@ -70,6 +75,10 @@ export class MyApp {
 
         this.oneSignal.endInit();
 
+  }
+  signOut(){
+    this.auth.auth.signOut();
+    this.nav.setRoot(HomePage)
   }
 }
 

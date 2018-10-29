@@ -10,6 +10,9 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon name="{{p.icon}}" item-left color="danger"></ion-icon>{{p.title}}
       </button>
+      <button menuClose ion-item (click)="signOut()">
+        <ion-icon name= "exit" item-left color="danger"></ion-icon>Sair
+      </button>
     </ion-list>
   </ion-content>
 

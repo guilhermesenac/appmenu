@@ -1,8 +1,8 @@
 <ion-header>
   <ion-navbar color="danger">
-    <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button> -->
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,8 +10,8 @@
 
 
 <ion-content padding>
-    <h3>Bem vindo</h3>
-    <h4>{{userName}}</h4>
+    <h3 class="bemvindo">Bem vindo</h3>
+    <h4 class="nome">{{userName}}</h4>
 
 
 <ion-slides pager>
@@ -20,14 +20,14 @@
     <img src="assets/imgs/imc.jpg">
   </ion-slide>
 
-  <ion-slide style="background-color: #02b9ae">
-    <img src="assets/imgs/list.jpg">
+  <ion-slide>
+    <img src="assets/imgs/plano41.jpg">
   </ion-slide>
 
       <ion-slide padding class="planofundo">
-       <button ion-button block color="dark" navPush="LoginPage">Entrar</button>
-      <button ion-button block color="dark" navPush="CadastroPage">Criar Conta</button>
-      <button ion-button block color="dark" navPush="ResetpassowrdPage">Esqueci minha senha</button>
+       <button ion-button block color="secondary" navPush="LoginPage">Entrar</button>
+      <button ion-button block color="secondary" navPush="CadastroPage">Criar Conta</button>
+      <button ion-button block color="secondary" navPush="ResetpassowrdPage">Esqueci minha senha</button>
 
 
   </ion-slide>

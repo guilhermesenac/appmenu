@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar  color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notícias da semana</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content padding>
+
+    <ion-card  *ngFor="let categoria of categorias | async">
+        <ion-card-content>
+            <h3 class="categoria">{{categoria.nome}}</h3> 
+        </ion-card-content>
+      </ion-card>
+
+  <!-- <ion-list>
+    
+    <ion-item-sliding *ngFor="let categoria of categorias | async">
+      <ion-item>
+        <h3 class="categoria">{{categoria.nome}}</h3> 
+        <p [innerHTML]="categoria.nome"></p>
+      </ion-item>
+
+    </ion-item-sliding>   
+  </ion-list> -->
+
+</ion-content>
