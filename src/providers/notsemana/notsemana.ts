@@ -26,7 +26,8 @@ export class NotsemanaProvider {
 
   save(categoriaData:any){
     const categoria = {
-      nome: categoriaData.nome
+      titulo: categoriaData.titulo,
+      descricao: categoriaData.descricao
     };
 
     if(categoriaData.key){

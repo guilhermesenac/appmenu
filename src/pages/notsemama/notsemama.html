@@ -8,26 +8,41 @@
   </ion-navbar>
 </ion-header>
 
-
-
-
 <ion-content padding>
-
-    <ion-card  *ngFor="let categoria of categorias | async">
-        <ion-card-content>
-            <h3 class="categoria">{{categoria.nome}}</h3> 
+    <ion-card *ngFor="let categoria of categorias | async">
+          <ion-card-content>
+          <ion-card-title class="tit">
+              {{categoria.titulo}}
+            </ion-card-title>
+          <p class="edit">
+              {{categoria.descricao}}
+          </p>
         </ion-card-content>
       </ion-card>
 
+
+
   <!-- <ion-list>
-    
     <ion-item-sliding *ngFor="let categoria of categorias | async">
       <ion-item>
-        <h3 class="categoria">{{categoria.nome}}</h3> 
-        <p [innerHTML]="categoria.nome"></p>
+        <ion-card-content>
+          <ion-card-title>
+            {{categoria.titulo}}
+          </ion-card-title>
+          
+          <p>{{categoria.descricao}}</p>
+        </ion-card-content>                 
       </ion-item>
-
+     
+      <ion-item-options side="left">
+        <button ion-button color="secondary" (click)="editCategorias(categoria)"><ion-icon name="create"></ion-icon>Editar</button>
+      </ion-item-options>
+      <ion-item-options side="right">
+          <button ion-button color="primary" (click)="removeCategorias(categoria.key)"><ion-icon name="trash"></ion-icon>Remover</button>
+        </ion-item-options>
     </ion-item-sliding>   
   </ion-list> -->
-
+   <!-- <ion-fab right bottom>
+    <button ion-fab color="dark" (click)="newCategorias()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>  -->
 </ion-content>

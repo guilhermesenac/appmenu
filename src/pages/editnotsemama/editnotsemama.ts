@@ -42,7 +42,8 @@ export class EditnotsemamaPage {
   private createForm(){
     this.form = this.formBuilder.group({
       key:[this.categoria.key],
-      nome:[this.categoria.nome, Validators.required] 
+      titulo:[this.categoria.titulo, Validators.required],
+      descricao:[this.categoria.descricao, Validators.required]
     })
   }
 
